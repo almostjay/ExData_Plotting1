@@ -1,0 +1,12 @@
+data5rows  <- read.table("household_power_consumption.txt", header = TRUE, nrows = 5, sep = ";")
+classes  <- sapply(data5rows, class)
+names  <- names(data5rows[,3:9])
+data  <- read.table("household_power_consumption.txt",header = TRUE, sep = ";", skip = 66636, nrows = 2880, colClasses = classes, na.strings = "?")
+DateTime  <- paste(data[,1],data[,2])
+DateTime  <- strptime(DateTime, "%d/%m/%Y %H:%M:%S")
+data = cbind(DateTime,data[,3:9])
+names(data)  <- c("DateTime",names)
+
+png(filename = "plot1.png", width = 480, height = 480, units = "px", pointsize = 12, bg = "white",  res = NA, type = "quartz")
+hist(data[,2], main = "Global Active Power", xlab = "Global Active Power (kilowatts)", ylim = c(0,1300),col = "red")
+dev.off()

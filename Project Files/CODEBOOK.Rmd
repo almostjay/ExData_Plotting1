@@ -1,0 +1,19 @@
+Codebook for Exploratory Data Analysis Project #1
+========================================================
+
+This repository contains 8 files - 4 .png plots and the R scripts that can be used to recreate them. Please ensure that the dataset for the project "household_power_consumption.txt" is located in your working directory when running the code.
+
+Each script has a common set of code that is used to read in the data in an efficient way. A line by line explanation is provided below:
+<ul>
+<li>line 1: reads in just the first 5 lines of the dataset into a variable called "data5rows"
+<li>line 2: determines the classes of all of the variables in data5rows and saves them to a variable called "classes"
+<li>line 3: saves the names of the relevant variables into a variable called "names"
+<li>line 4: reads in the larger dataset (only for the days required) with classes already defined to save read time
+<li>line 5: creates a separate data frame with date/time data from the original dataset
+<li>line 6: formats the date/time data properly and changes the data from character to date/time data
+<li>line 7: creates a new combined data frame (data/time + data) with the cbind function
+<li>line 8: properly names the columns in the combined dataset using the previously created "names" variable
+</ul>
+
+Each of the 4 scripts then contains the code required to generate the plots required for the project. I chose to open and write to .png files instead of plotting to a screen device and subsequently saving the files to .png format. 
+
